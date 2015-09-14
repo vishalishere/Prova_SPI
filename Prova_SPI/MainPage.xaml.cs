@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Diagnostics;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -27,6 +28,7 @@ namespace Prova_SPI
     public sealed partial class MainPage : Page
     {
         private SpiDevice SPI;
+        
         
         public MainPage()
         {
@@ -65,25 +67,22 @@ namespace Prova_SPI
             }
         }
 
-
-        private void AD9834Send(byte[] Data)
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
+            if ((string)SetFrequencyRange.SelectionBoxItem == "Hz")
+            {
+                Debug.Write("Hz\n");
+            }
 
-        }
+            if ((string)SetFrequencyRange.SelectionBoxItem == "KHz")
+            {
+                Debug.Write("KHz\n");
+            }
 
-        private void SetOffsetRange_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
-        {
-
-        }
-
-        private void SetAmplitudeRange_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
-        {
-
-        }
-
-        private void SetFrequencyRange_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
-        {
-
+            if ((string)SetFrequencyRange.SelectionBoxItem == "MHz")
+            {
+                Debug.Write("MHz\n");
+            }
         }
 
         private void SetSinWave_Checked(object sender, RoutedEventArgs e)
@@ -101,19 +100,5 @@ namespace Prova_SPI
 
         }
 
-        private void FrequencyTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void AmplitudeTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void OffsetTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }
